@@ -43,10 +43,17 @@ class HomeController extends Controller
                 return view('home.index',compact('data'));
             }
 
+            if($usertype=='gerant')
+            {
+                return view('gerant.index');
+            }
+
             else
             {
 
                 $total_user = User::where('usertype','=','user')->count();
+                
+                
 
                 $total_food = Food::count();
 
@@ -56,6 +63,7 @@ class HomeController extends Controller
 
                 return view('admin.index',compact('total_user','total_food','total_order','total_delivered'));
             }
+            
         }
         
         

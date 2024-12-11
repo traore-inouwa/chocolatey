@@ -10,8 +10,12 @@ use App\Models\Book;
 
 use App\Models\Order;
 
+use App\Models\Personnels;
+
 class AdminController extends Controller
 {
+  
+
     public function add_food()
     {
         return view('admin.add_food');
@@ -128,4 +132,20 @@ class AdminController extends Controller
 
             return view('admin.reservation',compact('book'));
         }
+
+        public function personnels()
+        {
+            $personnels = Personnels::all();
+            return view('admin.personnels')->with('personnels', $personnels);
+        }
+
+        public function add()
+        {
+            return view('admin.personnels_create');
+        }
+
+        
+        
+
+       
 }

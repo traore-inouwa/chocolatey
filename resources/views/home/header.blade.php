@@ -18,7 +18,7 @@
             </li>
         </ul>
         <a class="navbar-brand m-auto" href="{{url('/')}}">
-            <img src="assets/imgs/logo.svg" class="brand-img" alt="">
+            <img src="assets/imgs/logo.png" class="brand-img" alt="" >
             <span class="brand-txt">Chocolat&Coffee shop</span>
         </a>
         <ul class="navbar-nav">
@@ -63,7 +63,7 @@
 <header id="home" class="header">
     <div class="overlay text-white text-center">
         <h1 class="display-2 font-weight-bold my-3">Chocolat & Coffee shop</h1>
-        <h2 class="display-4 mb-5">Cold fresh &amp; Delightful</h2>
+        <h2 class="display-4 mb-5">  Chocolat & coffee Hot,cold &amp; Delightful</h2>
         <a class="btn btn-lg btn-primary" href="#gallary">View Our gallary</a>
     </div>
 </header>

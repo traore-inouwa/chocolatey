@@ -6,6 +6,11 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',[HomeController::class, 'my_home']);
 
+Route::get('/personnels', [AdminController::class, 'personnels']);
+
+Route::get('/personnels/add', [AdminController::class, 'add'])->name('personnels.add');
+
+
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/add_food', [AdminController::class, 'add_food']);
