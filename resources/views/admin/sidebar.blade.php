@@ -15,10 +15,16 @@
       
     
        
-              <li>
-                <a href="{{url('personnels')}}"> <i class="icon-logout"></i>Staff
-              </a>
+             
+              <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Staff </a>
+                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                  <li><a href="{{url('ajouter')}}">Add Personnels</a></li>
+                  <li><a href="{{url('personnels')}}">View personnels</a></li>
+                 
+                </ul>
+              </li>
 
+             
               <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Food </a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                   <li><a href="{{url('add_food')}}">Add Food</a></li>
@@ -30,18 +36,18 @@
 
               
               <li>
-                <a href="{{url('orders')}}"> <i class="icon-logout"></i>Orders
+                <a href="{{url('orders')}}"> <i class="icon-logout"></i>  historique  Commandes</blockquote>
               </a>
 
               </li>
 
-              <li>
-                <a href="{{url('reservations')}}"> <i class="icon-logout"></i>Reservations
-              </a>
+              
+
+              
 
               </li>
 
-
+      </ul>
       
    
     </nav>

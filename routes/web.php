@@ -1,15 +1,24 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GerantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 Route::get('/',[HomeController::class, 'my_home']);
 
+
+Route::get('/delete_personnels/{id}', [AdminController::class, 'delete_personnels']);
+
+Route::post('/update_personnels/personnels', [AdminController::class, 'update_personnels_admin']);
+
+Route::get('/update_personnels/{id}', [AdminController::class, 'update_personnels']);
+
 Route::get('/personnels', [AdminController::class, 'personnels']);
 
-Route::get('/personnels/add', [AdminController::class, 'add'])->name('personnels.add');
+Route::get('/ajouter', [AdminController::class, 'ajouter_personnels']);
 
+Route::post('/ajouter/personnels', [AdminController::class, 'ajouter_personnels_admin']);
 
 Route::get('/home', [HomeController::class, 'index']);
 
@@ -44,7 +53,39 @@ Route::get('/canceled/{id}', [AdminController::class, 'canceled']);
 
 Route::post('/book_table', [HomeController::class, 'book_table']);
 
-Route::get('/reservations', [AdminController::class, 'reservations']);
+Route::get('/reserver', [GerantController::class,'reserver']);
+
+Route::get('/ajouter_reserver', [GerantController::class,'ajouter_reserver']);
+
+Route::post('/ajouter_reserver/gerant', [GerantController::class, 'ajouter_reserver_gerant']);
+
+Route::get('/update_reserver_book/{id}', [GerantController::class,'update_reserver_book']);
+
+Route::get('/update_reservation/{id}', [GerantController::class,'update_reservation']);
+
+Route::post('/update_reservation/gerant', [GerantController::class,'update_reservation_gerant']);
+
+Route::post('/update_reserver_book/gerant', [GerantController::class,'update_reserverBook_gerant']);
+
+Route::get('/delete_reserver_book/{id}', [GerantController::class,'delete_reserver_book']);
+
+Route::get('/delete_reservation/{id}', [GerantController::class,'delete_reservation']);
+
+
+
+
+
+
+Route::get('/commandes', [GerantController::class, 'commandes']);
+
+Route::get('/on_the_way_cm/{id}', [GerantController::class, 'on_the_way_cm']);
+
+Route::get('/delivered_cm/{id}', [GerantController::class, 'delivered_cm']);
+
+Route::get('/canceled_cm/{id}', [GerantController::class, 'canceled_cm']);
+
+
+
 
 
 

@@ -12,6 +12,11 @@ use App\Models\Order;
 
 use App\Models\Personnels;
 
+
+
+
+
+
 class AdminController extends Controller
 {
   
@@ -126,26 +131,64 @@ class AdminController extends Controller
             return redirect()->back();
         }
 
-        public function reservations()
-        {
-            $book = Book::all();
-
-            return view('admin.reservation',compact('book'));
-        }
+       
 
         public function personnels()
         {
+
+
             $personnels = Personnels::all();
-            return view('admin.personnels')->with('personnels', $personnels);
+            
+            return view('admin.personnels',compact('personnels'));
+
+            
         }
 
-        public function add()
+        public function ajouter_personnels()
         {
-            return view('admin.personnels_create');
+            return view('admin.ajouter');
+        }
+
+        public function ajouter_personnels_admin(Request $request)
+        {
+            $data = new Personnels;
+            $data->name = $request->name;
+            $data->firstname = $request->firstname;
+            $data->email = $request->email;
+            $data->phone = $request->phone;
+        
+            $data->save();
+
+            return redirect('/ajouter')->with('status', 'personnels ajouter avec succes');
+        }
+       
+        public function update_personnels($id)
+        {
+            $personnels = Personnels::find($id);
+            return view('admin.update_personnels', compact('personnels'));
+        }
+       
+        public function update_personnels_admin(Request $request)
+        {
+            
+            $data = Personnels::find($request->id);
+            $data->name = $request->name;
+            $data->firstname = $request->firstname;
+            $data->email = $request->email;
+            $data->phone = $request->phone;
+        
+            $data->update();
+            return redirect('/personnels')->with('status', 'personnels modifié avec succes');
+        }
+
+        public function delete_personnels($id)
+        {
+
+           $personnels = Personnels::find($id);
+           $personnels->delete();
+           return redirect('/personnels')->with('status', 'personnels supprimé avec succes');
         }
 
         
-        
-
-       
+      
 }

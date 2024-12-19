@@ -11,7 +11,7 @@
               
                 <div class="col-md-4">
                     <div class="card bg-transparent border my-3 my-md-0">
-                        <img height="250" src="food_img/{{$data->image}}" class="rounded-0 card-img-top mg-responsive">
+                        <img height="400" src="food_img/{{$data->image}}" class="rounded-0 card-img-top mg-responsive">
                         <div class="card-body">
                             <h1 class="text-center mb-4"><a href="#" class="badge badge-primary">{{$data->price}}</a></h1>
                             <h4 class="pt20 pb20">{{$data->title}} </h4>
