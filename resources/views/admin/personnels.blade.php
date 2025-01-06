@@ -12,6 +12,7 @@
     @include('admin.sidebar')
 
       <div class="page-content">
+        <h1>Tous le personnels</h1>
         <div class="page-header">
           <div class="container-fluid">
 

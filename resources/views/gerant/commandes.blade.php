@@ -6,20 +6,13 @@
     <style>
         table
         {
-            border: 1px solid skyblue;
+            
             margin: auto;
-            width:1000px;
+           width: 900px;
+        
         }
 
-        th{
-
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            text-align: center;
-            background-color: red;
-            padding: 10px;
-        }
+        
 
         td{
             color: white;
@@ -40,10 +33,13 @@
     @include('gerant.sidebar')
 
       <div class="page-content">
+        <h1>Les commandes éffectuées par les clients</h1>
         <div class="page-header">
+          
           <div class="container-fluid">
 
-           <table>
+            <table class="table">
+                <thead>
             <tr>
                 <th>Customer Name</th>
 
@@ -65,6 +61,9 @@
 
                 <th>Change status</th>
             </tr>
+                </thead>
+
+                <tbody>
 
             @foreach ($data as $data)
                 
@@ -93,17 +92,16 @@
 
                 <td>
                     <a onclick="return confirm('Are you sure to change this?')" class="btn btn-info" href="{{url('on_the_way_cm',$data->id)}}">On the way</a>
-                </td>
+                
 
-                <td>
+                
                     <a onclick="return confirm('Are you sure to change this?')"  class="btn btn-warning" href="{{url('delivered_cm',$data->id)}}">Delivered</a>
                 </td>
 
-                <td>
-                    <a onclick="return confirm('Are you sure to change this?')"  class="btn btn-danger" href="{{url('canceled_cm',$data->id)}}">Cancel</a>
-                </td>
+                
             </tr>
             @endforeach
+        </tbody>
 
            </table>
 

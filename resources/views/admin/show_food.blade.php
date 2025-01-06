@@ -36,11 +36,13 @@
     @include('admin.sidebar')
 
       <div class="page-content">
+        <h1>Toutes les nourritures</h1>
         <div class="page-header">
           <div class="container-fluid">
-            <h1>All Foods</h1>
+            
 
-           
+           <br>
+           <br>
 
             <div>
               <table>

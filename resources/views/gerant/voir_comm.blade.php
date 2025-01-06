@@ -42,8 +42,8 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-            <br>
-        <h1>Voir les réservations</h1>
+<br>
+<h1>Voir les commandes</h1>
 
 
 
@@ -61,47 +61,38 @@
                 <tr>
 
                     <th>#</th>
-                    <th>Phone Number</th>
-                    <th>No. of Guest</th>
+                    <th>Numéro table</th>
+                    <th>Nom du personnel</th>
                     <th>Date</th>
-                    <th>Time</th>
+                    <th>Montant</th>
                     <th>Actions</th>
                 </tr>
 
-
-                @foreach ($book as $book)
+@php
+    $ide = 1;
+@endphp
+                @foreach ($nouvel_comds as $nouvel_comd)
 
                 <tr>
-                    <td>{{$book->id}}</td>
-                    <td>{{$book->phone}}</td>
-                    <td>{{$book->guest}}</td>
-                    <td>{{$book->date}}</td>
-                    <td>{{$book->time}}</td>
+                    <td>{{$ide}}</td>
+                    <td>{{$nouvel_comd->num_tab}}</td>
+                    <td>{{$nouvel_comd->name_personnel}}</td>
+                    <td>{{$nouvel_comd->date}}</td>
+                    <td>{{$nouvel_comd->montant}}</td>
 
                     <td>
-                      <a href="/update_reserver_book/{{$book->id}}" class="btn btn-info">Update</a>
-                      <a href="/delete_reserver_book/{{$book->id}}" class="btn btn-danger">Delete</a>
+                      <a href="/update_comd/{{$nouvel_comd->id}}" class="btn btn-info">Update</a>
+                      <a href="/delete_comd/{{$nouvel_comd->id}}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
 
-                @endforeach
-
-                @foreach ($reservations as $reservation)
-                    
-                <tr>
-                  <td>{{$reservation->id}}</td>
-                  <td>{{$reservation->phone}}</td>
-                  <td>{{$reservation->guest}}</td>
-                  <td>{{$reservation->date}}</td>
-                  <td>{{$reservation->time}}</td>
-
-                  <td>
-                    <a href="/update_reservation/{{$reservation->id}}" class="btn btn-info">Update</a>
-                    <a href="/delete_reservation/{{$reservation->id}}" class="btn btn-danger">Delete</a>
-                  </td>
-                </tr>
+                @php
+                    $ide +=1;
+                @endphp
 
                 @endforeach
+
+                
                
             </table>
 

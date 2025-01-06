@@ -30,7 +30,7 @@
         <div class="page-header">
           <div class="container-fluid">
 
-        <h1>Update food</h1>
+        <h1>Modifier la nourriture</h1>
 
         <form action="{{url('edit_food', $food->id)}}" method="post" enctype="multipart/form-data">
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GerantController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServeurController;
 
 Route::get('/',[HomeController::class, 'my_home']);
 
@@ -20,7 +21,7 @@ Route::get('/ajouter', [AdminController::class, 'ajouter_personnels']);
 
 Route::post('/ajouter/personnels', [AdminController::class, 'ajouter_personnels_admin']);
 
-Route::get('/home', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/add_food', [AdminController::class, 'add_food']);
 
@@ -85,19 +86,49 @@ Route::get('/delivered_cm/{id}', [GerantController::class, 'delivered_cm']);
 Route::get('/canceled_cm/{id}', [GerantController::class, 'canceled_cm']);
 
 
+Route::get('/voir_commandes', [GerantController::class,'voir_commandes']);
+
+Route::get('/ajouter_commandes', [GerantController::class,'ajouter_commandes']);
+
+Route::post('/ajouter_commandes/gerant', [GerantController::class, 'ajouter_commandes_gerant']);
 
 
 
 
+Route::get('/update_comd/{id}', [GerantController::class,'update_comd']);
+
+Route::post('/update_comd/gerant', [GerantController::class, 'update_comd_gerant']);
+
+Route::get('/delete_comd/{id}', [GerantController::class,'delete_comd']);
 
 
+
+Route::get('/paiement', [GerantController::class,'paiement']);
+
+Route::post('/ajouter_paiement/gerant', [GerantController::class, 'ajouter_paiement_gerant']);
+
+Route::get('/facture', [GerantController::class,'facture']);
+
+Route::get('/update_paie/{id}', [GerantController::class,'update_paie']);
+
+Route::post('/update_paie/gerant', [GerantController::class, 'update_paie_gerant']);
+
+Route::get('/delete_paie/{id}', [GerantController::class,'delete_paie']);
+
+Route::get('/download_paie/{id}', [GerantController::class,'download_paie']);
+
+
+Route::get('/cuisinier', [ServeurController::class,'cuisinier']);
+
+Route::get('/ajout_cm', [ServeurController::class,'ajout_cm']);
+
+
+Route::post('/ajout_cm/serveur', [ServeurController::class,'ajout_cm_serveur']);
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 });

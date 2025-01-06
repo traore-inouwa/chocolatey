@@ -60,11 +60,7 @@
                     <input type="time" class="form-control" id="Time" name="time"  value="{{$book->time}}" required>
                     
                   </div>
-                
-
-                
-                  
-                
+                                
                 <button type="submit" class="btn btn-info">Save</button>
 
                 <br>

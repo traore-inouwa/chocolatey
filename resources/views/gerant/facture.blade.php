@@ -42,8 +42,8 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-            <br>
-        <h1>Voir les réservations</h1>
+<br>
+<h1>Voir les paiements</h1>
 
 
 
@@ -61,47 +61,41 @@
                 <tr>
 
                     <th>#</th>
-                    <th>Phone Number</th>
-                    <th>No. of Guest</th>
+                    <th>Numéro table</th>
                     <th>Date</th>
-                    <th>Time</th>
+                    <th>Montant</th>
+                    <th>Méthode de paiement</th>
+                    <th>Statut de paiement</th>
                     <th>Actions</th>
                 </tr>
 
-
-                @foreach ($book as $book)
+@php
+    $ide = 1;
+@endphp
+                @foreach ($paiements as $paiement)
 
                 <tr>
-                    <td>{{$book->id}}</td>
-                    <td>{{$book->phone}}</td>
-                    <td>{{$book->guest}}</td>
-                    <td>{{$book->date}}</td>
-                    <td>{{$book->time}}</td>
+                    <td>{{$ide}}</td>
+                    <td>{{$paiement->num_tab}}</td>
+                    <td>{{$paiement->date}}</td>
+                    <td>{{$paiement->montant}}</td>
+                    <td>{{$paiement->meth_paie}}</td>
+                    <td>{{$paiement->stat_paie}}</td>
 
                     <td>
-                      <a href="/update_reserver_book/{{$book->id}}" class="btn btn-info">Update</a>
-                      <a href="/delete_reserver_book/{{$book->id}}" class="btn btn-danger">Delete</a>
+                      <a href="/update_paie/{{$paiement->id}}" class="btn btn-info">Update</a>
+                      <a href="/delete_paie/{{$paiement->id}}" class="btn btn-danger">Delete</a>
+                      <a href="/download_paie/{{$paiement->id}}" class="btn btn-warning">Download</a>
                     </td>
                 </tr>
 
-                @endforeach
-
-                @foreach ($reservations as $reservation)
-                    
-                <tr>
-                  <td>{{$reservation->id}}</td>
-                  <td>{{$reservation->phone}}</td>
-                  <td>{{$reservation->guest}}</td>
-                  <td>{{$reservation->date}}</td>
-                  <td>{{$reservation->time}}</td>
-
-                  <td>
-                    <a href="/update_reservation/{{$reservation->id}}" class="btn btn-info">Update</a>
-                    <a href="/delete_reservation/{{$reservation->id}}" class="btn btn-danger">Delete</a>
-                  </td>
-                </tr>
+                @php
+                    $ide +=1;
+                @endphp
 
                 @endforeach
+
+                
                
             </table>
 

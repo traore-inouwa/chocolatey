@@ -29,6 +29,9 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
+            <h1>Ajouter nourriture</h1>
+            <br>
+            <br>
 
          <form action="{{url('upload_food')}}"method="post" enctype="multipart/form-data">
             @csrf

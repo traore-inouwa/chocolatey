@@ -5,10 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Commande extends Model
+class Paiement extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'num_tab',
+        'date',
+        'montant',
+        'meth_paie',
+        'stat_paie',
+
         
     ];
 }

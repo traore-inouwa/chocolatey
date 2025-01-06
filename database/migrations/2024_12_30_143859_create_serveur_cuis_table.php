@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('commandes', function (Blueprint $table) {
+        Schema::create('serveur_cuis', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('num_tab');
+            $table->string('name_personnel');
+            $table->string('nourriture');
+            $table->string('date');
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('commandes');
+        Schema::dropIfExists('serveur_cuis');
     }
 };
